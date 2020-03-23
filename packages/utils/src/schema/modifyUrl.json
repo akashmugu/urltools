@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "modifyUrlConfig",
+  "type": "object",
+  "properties": {
+    "protocol": {
+      "title": "protocol",
+      "type": "string"
+    },
+    "username": {
+      "title": "username",
+      "type": "string"
+    },
+    "password": {
+      "title": "password",
+      "type": "string"
+    },
+    "host": {
+      "title": "host",
+      "type": "string"
+    },
+    "pathname": {
+      "title": "pathname",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["replace", "append"]
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": ["type", "value"],
+      "additionalProperties": false
+    },
+    "searchParams": {
+      "oneOf": [
+        {
+          "title": "searchParamsPickOmit",
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["pick", "omit"]
+            },
+            "value": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          },
+          "required": ["type", "value"],
+          "additionalProperties": false
+        },
+        {
+          "title": "searchParamsReplaceAppend",
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["replace", "append"]
+            },
+            "value": {
+              "type": "object"
+            }
+          },
+          "required": ["type", "value"],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "hash": {
+      "title": "hash",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

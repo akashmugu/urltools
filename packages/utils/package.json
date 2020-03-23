@@ -1,0 +1,34 @@
+{
+  "name": "@urltools/utils",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Akash <akashmugu@gmail.com>",
+  "homepage": "https://bitbucket.org/akashmugu/urltools#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/akashmugu/urltools.git"
+  },
+  "scripts": {
+    "prebuild": "shx rm -rf lib",
+    "build": "node build.js",
+    "ajv": "ajv",
+    "json2ts": "json2ts",
+    "compile": "parcel build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "ajv-cli": "^3.1.0",
+    "fs-extra": "^8.1.0",
+    "json-schema-to-typescript": "^8.2.0",
+    "parcel-bundler": "^1.12.4",
+    "shx": "^0.3.2"
+  }
+}

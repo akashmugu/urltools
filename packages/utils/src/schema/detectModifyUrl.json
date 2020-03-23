@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "detectModifyUrlConfig",
+  "type": "array",
+  "items": {
+    "title": "siteConfig",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "examples": ["Google Search"]
+      },
+      "test": {
+        "type": "string",
+        "examples": ["^(?:https|http)://(?:www.)?google.com/search?"]
+      },
+      "filters": {
+        "type": "array",
+        "items": {
+          "title": "modifyUrlConfig",
+          "type": "object",
+          "examples": [{ "searchParams": { "type": "pick", "value": ["q"] } }]
+        }
+      }
+    },
+    "required": ["name", "test", "filters"],
+    "additionalProperties": false
+  }
+}
