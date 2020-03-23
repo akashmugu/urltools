@@ -1,6 +1,38 @@
-# `detect-modify-url`
+# `@urltools`
 
-## usage
+> packages for processing urls
+
+below is a brief usage of the packages. check individual READMEs for more details
+
+## [modify-url](packages/modify-url/README.md)
+
+```js
+import modifyUrl from '@urltools/modify-url'
+
+// serializable config is used to modify the url
+const config = {
+  protocol: 'https',
+  host: 'google.com',
+  searchParams: {
+    type: 'pick',
+    value: ['q']
+  }
+}
+
+const oldUrl = 'http://bing.com/search?q=galaxy&tracking=somethingyoudontwant'
+
+// create processUrl once based on serializable config
+const processUrl = modifyUrl(config)
+
+// processUrl can be used in pipe (functional style) or as a url transformation function
+const newUrl = processUrl(oldUrl)
+
+expect(newUrl).toBe('https://google.com/search?q=galaxy')
+
+// this package can used to modify any part of the url easily
+```
+
+## [detect-modify-url](packages/detect-modify-url/README.md)
 
 ```js
 import detectModifyUrl from '@urltools/detect-modify-url'
@@ -47,11 +79,3 @@ expect(res3.match).toBe(undefined)
 
 // this package can be used to modify urls in bulk easily
 ```
-
-## config
-
-[WHATWG](https://url.spec.whatwg.org) terminology is used for different parts of the url
-
-[json schema of config root](../utils/src/schema/detectModifyUrl.json)
-
-[json schema of filter - an object in filters array](../utils/src/schema/modifyUrl.json)

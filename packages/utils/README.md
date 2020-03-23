@@ -1,6 +1,6 @@
 # `utils`
 
-> utils for other @urltools/\* npm modules in the monorepo
+> utils for other @urltools/\* packages in this repo
 
 ## usage
 

@@ -1,9 +1,15 @@
 {
   "name": "@urltools/detect-modify-url",
   "version": "0.0.0",
-  "description": "> TODO: description",
+  "description": "detect and modify urls in bulk based on serializable config",
+  "keywords": [
+    "bulk modify urls",
+    "serializable config",
+    "curryable",
+    "functional style"
+  ],
   "author": "Akash <akashmugu@gmail.com>",
-  "homepage": "https://bitbucket.org/akashmugu/urltools#readme",
+  "homepage": "https://github.com/akashmugu/urltools/tree/master/packages/detect-modify-url",
   "license": "ISC",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -16,7 +22,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/akashmugu/urltools.git"
+    "url": "git+https://github.com/akashmugu/urltools.git"
   },
   "scripts": {
     "lint": "eslint --ext .ts,.tsx src",

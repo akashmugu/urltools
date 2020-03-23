@@ -5,6 +5,7 @@
 ```js
 import modifyUrl from '@urltools/modify-url'
 
+// serializable config is used to modify the url
 const config = {
   protocol: 'https',
   host: 'google.com',
@@ -16,9 +17,15 @@ const config = {
 
 const oldUrl = 'http://bing.com/search?q=galaxy&tracking=somethingyoudontwant'
 
-const newUrl = modifyUrl(config)(oldUrl)
+// create processUrl once based on serializable config
+const processUrl = modifyUrl(config)
+
+// processUrl can be used in pipe (functional style) or as a url transformation function
+const newUrl = processUrl(oldUrl)
 
 expect(newUrl).toBe('https://google.com/search?q=galaxy')
+
+// this package can used to modify any part of the url easily
 ```
 
 ## config

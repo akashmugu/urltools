@@ -1,9 +1,15 @@
 {
   "name": "@urltools/modify-url",
   "version": "0.0.0",
-  "description": "> TODO: description",
+  "description": "modify url based on serializable config",
+  "keywords": [
+    "modify url",
+    "serializable config",
+    "curryable",
+    "functional style"
+  ],
   "author": "Akash <akashmugu@gmail.com>",
-  "homepage": "https://bitbucket.org/akashmugu/urltools#readme",
+  "homepage": "https://github.com/akashmugu/urltools/tree/master/packages/modify-url",
   "license": "ISC",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -16,7 +22,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/akashmugu/urltools.git"
+    "url": "git+https://github.com/akashmugu/urltools.git"
   },
   "scripts": {
     "lint": "eslint --ext .ts,.tsx src",
