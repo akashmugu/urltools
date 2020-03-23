@@ -8,6 +8,9 @@
     "curryable",
     "functional style"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Akash <akashmugu@gmail.com>",
   "homepage": "https://github.com/akashmugu/urltools/tree/master/packages/detect-modify-url",
   "license": "ISC",
