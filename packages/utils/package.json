@@ -1,6 +1,6 @@
 {
   "name": "@urltools/utils",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "utils for other @urltools/* packages",
   "author": "Akash <akashmugu@gmail.com>",
   "homepage": "https://github.com/akashmugu/urltools/tree/master/packages/utils",
