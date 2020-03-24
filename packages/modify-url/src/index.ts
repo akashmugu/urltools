@@ -15,3 +15,4 @@ const modifyUrl: ModifyUrl = config => {
 }
 
 export default modifyUrl
+export { validate }

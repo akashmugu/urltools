@@ -1,5 +1,10 @@
 # `detect-modify-url`
 
+## motivation
+
+i need a tool which modifies urls in bulk easily
+based on just a serializable config representing a bunch of rules
+
 ## usage
 
 ```js
@@ -45,13 +50,26 @@ const res3 = processUrl('http://bing.com/search?q=galaxy&foo=bar&pryingtrackid=b
 expect(res3.url).toBe('http://bing.com/search?q=galaxy&foo=bar&pryingtrackid=baz')
 expect(res3.match).toBe(undefined)
 
-// this package can be used to modify urls in bulk easily
+/******************************/
+
+// validity of dynamic configs (e.g. from user input)
+// can be checked by using try...catch
+// or by using the validate function
+import detectModifyUrl, { validate } from '@urltools/detect-modify-url'
+
+const invalidConfig = { foo: 'google.com' }
+
+expect(() => {
+  detectModifyUrl(invalidConfig)
+}).toThrow()
+
+expect(validate(invalidConfig)).toBe(false)
 ```
 
 ## config
 
 [WHATWG](https://url.spec.whatwg.org) terminology is used for different parts of the url
 
-[json schema of config root](../utils/src/schema/detectModifyUrl.json)
+[json schema of config](../utils/src/schema/detectModifyUrl.json)
 
-[json schema of filter - an object in filters array](../utils/src/schema/modifyUrl.json)
+to know what filters are possible, checkout the package `@urltools/modify-url` (dependency of this package) for more examples

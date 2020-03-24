@@ -1,5 +1,10 @@
 # `modify-url`
 
+## motivation
+
+i need a tool which modifies the url however i want without writing any code (except for the tool)
+based on just a serializable config which is so intuitive that you don't need to read the docs
+
 ## usage
 
 ```js
@@ -24,8 +29,6 @@ const processUrl = modifyUrl(config)
 const newUrl = processUrl(oldUrl)
 
 expect(newUrl).toBe('https://google.com/search?q=galaxy')
-
-// this package can used to modify any part of the url easily
 ```
 
 ## config
@@ -147,14 +150,18 @@ expect(
 ).toBe(expectedUrl)
 
 
-// error will be thrown for invalid configs
+// validity of dynamic configs (e.g. from user input)
+// can be checked by using try...catch
+// or by using the validate function
+import modifyUrl, { validate } from '@urltools/modify-url'
+
 const invalidConfig = { foo: 'google.com' }
+
 expect(() => {
   modifyUrl(invalidConfig)
 }).toThrow()
 
-// so validity of dynamic configs (e.g. from user input)
-// can be checked by using try...catch
+expect(validate(invalidConfig)).toBe(false)
 
 // why do the above output urls end with / ?
 // e.g. https://google.com/ instead of just https://google.com

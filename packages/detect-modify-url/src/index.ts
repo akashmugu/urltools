@@ -24,3 +24,4 @@ const detectModifyUrl: DetectModifyUrl = config => {
 }
 
 export default detectModifyUrl
+export { validate }

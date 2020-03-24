@@ -5,6 +5,33 @@ const [cwd, src, tmp, tmpsrc, lib] = ['', 'src', 'tmp', 'tmp/src', 'lib'].map(di
 
 const exec = command => require('util').promisify(require('child_process').exec)(command, { cwd })
 
+// 1 level sub schema substitution
+// e.g. if schema1.json has `{ "$ref": "schema2.json" }`,
+// that will be replaced by contents of schema2.json
+// this is a workaround as ajv-cli and json-schema-to-typescript
+// currently don't support json schema $ref
+const transformSchemas = (dir, schemas) => {
+  const isObject = value => value && typeof value === 'object' && value.constructor === Object
+
+  schemas.forEach(currSchema => {
+    const data = JSON.parse(fs.readFileSync(`${dir}/${currSchema}.json`).toString(), (key, value) => {
+      if (isObject(value)) {
+        const keys = Object.keys(value)
+        if (keys.length === 1 && keys[0] === '$ref') {
+          const refSchema = value['$ref'].slice(0, -5)
+          if (refSchema !== currSchema && schemas.includes(refSchema)) {
+            return JSON.parse(fs.readFileSync(`${dir}/${refSchema}.json`).toString())
+          }
+        }
+      }
+
+      return value
+    })
+
+    fs.writeFileSync(`${dir}/${currSchema}.json`, JSON.stringify(data, null, 2))
+  })
+}
+
 const main = async () => {
   // init tmp
   await fs.emptyDir(tmp)
@@ -13,7 +40,8 @@ const main = async () => {
   await fs.copy(src, tmpsrc)
 
   // tmp/src
-  const schemas = (await fs.readdir(`${tmpsrc}/schema`)).map(f => f.slice(0, -5))
+  const schemas = (await fs.readdir(`${tmpsrc}/schema`)).filter(f => f.endsWith('.json')).map(f => f.slice(0, -5))
+  transformSchemas(`${tmpsrc}/schema`, schemas)
   await fs.emptyDir(`${tmpsrc}/validate`)
   await fs.emptyDir(`${tmpsrc}/types`)
   await Promise.all(

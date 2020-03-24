@@ -17,9 +17,7 @@
       "filters": {
         "type": "array",
         "items": {
-          "title": "modifyUrlConfig",
-          "type": "object",
-          "examples": [{ "searchParams": { "type": "pick", "value": ["q"] } }]
+          "$ref": "modifyUrl.json"
         }
       }
     },
