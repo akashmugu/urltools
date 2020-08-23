@@ -31,13 +31,16 @@
     "lint": "eslint --ext .ts,.tsx src",
     "test": "jest",
     "prebuild": "npm run lint && npm run test && shx rm -rf lib",
-    "build": "tsc"
+    "build": "tsc",
+    "postbuild": "npm run bundlesize",
+    "bundlesize": "bundlesize"
   },
   "devDependencies": {
     "@types/jest": "^25.1.4",
     "@types/node": "^13.9.1",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "@typescript-eslint/parser": "^2.24.0",
+    "bundlesize": "^0.18.0",
     "eslint": "^6.8.0",
     "jest": "^25.1.0",
     "shx": "^0.3.2",

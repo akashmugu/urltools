@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "id": "modifyUrl.json",
   "title": "modifyUrlConfig",
   "type": "object",
   "properties": {
