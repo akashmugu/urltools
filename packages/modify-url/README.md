@@ -148,25 +148,18 @@ const f = require('ramda').pipe(
 expect(
   f(originalUrl)
 ).toBe(expectedUrl)
-
-
-// validity of dynamic configs (e.g. from user input)
-// can be checked by using try...catch
-// or by using the validate function
-import modifyUrl, { validate } from '@urltools/modify-url'
-
-const invalidConfig = { foo: 'google.com' }
-
-expect(() => {
-  modifyUrl(invalidConfig)
-}).toThrow()
-
-expect(validate(invalidConfig)).toBe(false)
-
-// why do the above output urls end with / ?
-// e.g. https://google.com/ instead of just https://google.com
-// that's because WHATWG URL libs modify it that way
-// try running `new window.URL('https://google.com').toString()` in browser console
-// or `new (require('url').URL)('https://google.com').toString()` in node repl
-// this npm module just uses the above libs for modifying url
 ```
+
+## config validation
+
+JSON schema is provided to validate dynamic configs (e.g. from user input). Please use a JSON schema validator like AJV
+
+```js
+const schema = require('@urltools/utils/lib/schema/modifyUrl.json')
+```
+
+## config
+
+[WHATWG](https://url.spec.whatwg.org) terminology is used for different parts of the url
+
+[json schema of config](../utils/src/schema/modifyUrl.json)

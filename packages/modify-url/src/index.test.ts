@@ -4,13 +4,6 @@ import modifyUrl from './index'
 const pipe = (...fns: ((x: any) => any)[]) => (arg: any) => fns.reduce((acc, fn) => fn(acc), arg)
 
 describe('modifyUrl', () => {
-  it('throws invalid config', () => {
-    expect(() => {
-      // @ts-ignore
-      modifyUrl({ foo: 'bar' })
-    }).toThrowErrorMatchingSnapshot()
-  })
-
   it('returns fn for valid config', () => {
     expect(modifyUrl({ protocol: 'https' }) instanceof Function).toBe(true)
   })
@@ -46,7 +39,9 @@ describe('modifyUrl', () => {
 
     test('pathname - replace', () => {
       const oldUrl = 'http://google.com/some/path'
-      const config = { pathname: { type: 'replace', value: '/some/other/path' } }
+      const config = {
+        pathname: { type: 'replace', value: '/some/other/path' }
+      }
       const newUrl = 'http://google.com/some/other/path'
       expect(modifyUrl(config as ModifyUrlConfig)(oldUrl)).toBe(newUrl)
     })
@@ -60,28 +55,36 @@ describe('modifyUrl', () => {
 
     test('searchParams - pick', () => {
       const oldUrl = 'http://google.com/search?q=galaxy&foo=bar&track=someid'
-      const config = { searchParams: { type: 'pick', value: ['foo', 'track'] } }
+      const config = {
+        searchParams: { type: 'pick', value: ['foo', 'track'] }
+      }
       const newUrl = 'http://google.com/search?foo=bar&track=someid'
       expect(modifyUrl(config as ModifyUrlConfig)(oldUrl)).toBe(newUrl)
     })
 
     test('searchParams - omit', () => {
       const oldUrl = 'http://google.com/search?q=galaxy&foo=bar&track=someid'
-      const config = { searchParams: { type: 'omit', value: ['foo', 'track'] } }
+      const config = {
+        searchParams: { type: 'omit', value: ['foo', 'track'] }
+      }
       const newUrl = 'http://google.com/search?q=galaxy'
       expect(modifyUrl(config as ModifyUrlConfig)(oldUrl)).toBe(newUrl)
     })
 
     test('searchParams - replace', () => {
       const oldUrl = 'http://google.com/search?q=galaxy&foo=bar'
-      const config = { searchParams: { type: 'replace', value: { name: 'akash' } } }
+      const config = {
+        searchParams: { type: 'replace', value: { name: 'akash' } }
+      }
       const newUrl = 'http://google.com/search?name=akash'
       expect(modifyUrl(config as ModifyUrlConfig)(oldUrl)).toBe(newUrl)
     })
 
     test('searchParams - append', () => {
       const oldUrl = 'http://google.com/search?q=galaxy&foo=bar'
-      const config = { searchParams: { type: 'append', value: { name: 'akash' } } }
+      const config = {
+        searchParams: { type: 'append', value: { name: 'akash' } }
+      }
       const newUrl = 'http://google.com/search?q=galaxy&foo=bar&name=akash'
       expect(modifyUrl(config as ModifyUrlConfig)(oldUrl)).toBe(newUrl)
     })
@@ -110,8 +113,12 @@ describe('modifyUrl', () => {
     })
 
     test('multiple configs', () => {
-      const config1: ModifyUrlConfig = { searchParams: { type: 'pick', value: ['q'] } }
-      const config2: ModifyUrlConfig = { searchParams: { type: 'append', value: { name: 'akash' } } }
+      const config1: ModifyUrlConfig = {
+        searchParams: { type: 'pick', value: ['q'] }
+      }
+      const config2: ModifyUrlConfig = {
+        searchParams: { type: 'append', value: { name: 'akash' } }
+      }
 
       const originalUrl = 'http://google.com/search?q=galaxy&undesirablefoo=bar&pryingtrackid=baz'
       const expectedUrl = 'http://google.com/search?q=galaxy&name=akash'

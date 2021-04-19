@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "id": "modifyUrl.json",
+  "$id": "modifyUrl.json",
   "title": "modifyUrlConfig",
   "type": "object",
   "properties": {
@@ -62,7 +62,8 @@
               "enum": ["replace", "append"]
             },
             "value": {
-              "type": "object"
+              "type": "object",
+              "additionalProperties": { "type": "string" }
             }
           },
           "required": ["type", "value"],

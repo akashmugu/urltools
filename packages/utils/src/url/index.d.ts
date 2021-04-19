@@ -1,1 +1,1 @@
-export { URL, URLSearchParams } from 'url';
+export { URL, URLSearchParams } from 'url'

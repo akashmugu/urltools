@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`modifyUrl throws invalid config 1`] = `"[{\\"keyword\\":\\"additionalProperties\\",\\"dataPath\\":\\"\\",\\"schemaPath\\":\\"#/additionalProperties\\",\\"params\\":{\\"additionalProperty\\":\\"foo\\"},\\"message\\":\\"should NOT have additional properties\\"}]"`;

@@ -3,13 +3,6 @@ import { ModifyUrlConfig } from '@urltools/utils/lib/types/modifyUrl'
 import detectModifyUrl from './index'
 
 describe('detectModifyUrl', () => {
-  it('throws invalid config', () => {
-    expect(() => {
-      // @ts-ignore
-      detectModifyUrl({ foo: 'bar' })
-    }).toThrowErrorMatchingSnapshot()
-  })
-
   it('returns fn for valid config', () => {
     expect(detectModifyUrl([]) instanceof Function).toBe(true)
   })
@@ -71,7 +64,9 @@ describe('detectModifyUrl', () => {
     })
 
     test('1 site - 1 filter', () => {
-      const subconfig: ModifyUrlConfig = { searchParams: { type: 'pick', value: ['q'] } }
+      const subconfig: ModifyUrlConfig = {
+        searchParams: { type: 'pick', value: ['q'] }
+      }
       const config: DetectModifyUrlConfig = [
         {
           name: 'site 1',
@@ -86,8 +81,12 @@ describe('detectModifyUrl', () => {
     })
 
     test('1 site - multiple filters', () => {
-      const subconfig1: ModifyUrlConfig = { searchParams: { type: 'pick', value: ['q'] } }
-      const subconfig2: ModifyUrlConfig = { searchParams: { type: 'append', value: { name: 'akash' } } }
+      const subconfig1: ModifyUrlConfig = {
+        searchParams: { type: 'pick', value: ['q'] }
+      }
+      const subconfig2: ModifyUrlConfig = {
+        searchParams: { type: 'append', value: { name: 'akash' } }
+      }
       const config: DetectModifyUrlConfig = [
         {
           name: 'google search',
@@ -102,8 +101,12 @@ describe('detectModifyUrl', () => {
     })
 
     test('multiple sites', () => {
-      const subconfig1: ModifyUrlConfig = { searchParams: { type: 'pick', value: ['q'] } }
-      const subconfig2: ModifyUrlConfig = { searchParams: { type: 'pick', value: ['foo'] } }
+      const subconfig1: ModifyUrlConfig = {
+        searchParams: { type: 'pick', value: ['q'] }
+      }
+      const subconfig2: ModifyUrlConfig = {
+        searchParams: { type: 'pick', value: ['foo'] }
+      }
       const config: DetectModifyUrlConfig = [
         {
           name: 'google search',

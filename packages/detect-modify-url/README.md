@@ -49,21 +49,14 @@ expect(res2.match).toBe(config[1])
 const res3 = processUrl('http://bing.com/search?q=galaxy&foo=bar&pryingtrackid=baz')
 expect(res3.url).toBe('http://bing.com/search?q=galaxy&foo=bar&pryingtrackid=baz')
 expect(res3.match).toBe(undefined)
+```
 
-/******************************/
+## config validation
 
-// validity of dynamic configs (e.g. from user input)
-// can be checked by using try...catch
-// or by using the validate function
-import detectModifyUrl, { validate } from '@urltools/detect-modify-url'
+JSON schema is provided to validate dynamic configs (e.g. from user input). Please use a JSON schema validator like AJV
 
-const invalidConfig = { foo: 'google.com' }
-
-expect(() => {
-  detectModifyUrl(invalidConfig)
-}).toThrow()
-
-expect(validate(invalidConfig)).toBe(false)
+```js
+const schema = require('@urltools/utils/lib/schema/detectModifyUrl.json')
 ```
 
 ## config
