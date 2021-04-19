@@ -62,7 +62,8 @@
               "enum": ["replace", "append"]
             },
             "value": {
-              "type": "object"
+              "type": "object",
+              "additionalProperties": { "type": "string" }
             }
           },
           "required": ["type", "value"],

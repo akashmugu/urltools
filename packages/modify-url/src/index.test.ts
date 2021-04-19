@@ -4,13 +4,6 @@ import modifyUrl from './index'
 const pipe = (...fns: ((x: any) => any)[]) => (arg: any) => fns.reduce((acc, fn) => fn(acc), arg)
 
 describe('modifyUrl', () => {
-  it('throws invalid config', () => {
-    expect(() => {
-      // @ts-ignore
-      modifyUrl({ foo: 'bar' })
-    }).toThrowErrorMatchingSnapshot()
-  })
-
   it('returns fn for valid config', () => {
     expect(modifyUrl({ protocol: 'https' }) instanceof Function).toBe(true)
   })
