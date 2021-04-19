@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`detectModifyUrl throws invalid config 1`] = `"[{\\"keyword\\":\\"type\\",\\"dataPath\\":\\"\\",\\"schemaPath\\":\\"#/type\\",\\"params\\":{\\"type\\":\\"array\\"},\\"message\\":\\"should be array\\"}]"`;

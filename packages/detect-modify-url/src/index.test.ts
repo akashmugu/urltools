@@ -3,13 +3,6 @@ import { ModifyUrlConfig } from '@urltools/utils/lib/types/modifyUrl'
 import detectModifyUrl from './index'
 
 describe('detectModifyUrl', () => {
-  it('throws invalid config', () => {
-    expect(() => {
-      // @ts-ignore
-      detectModifyUrl({ foo: 'bar' })
-    }).toThrowErrorMatchingSnapshot()
-  })
-
   it('returns fn for valid config', () => {
     expect(detectModifyUrl([]) instanceof Function).toBe(true)
   })
