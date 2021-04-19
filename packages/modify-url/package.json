@@ -1,6 +1,6 @@
 {
   "name": "@urltools/modify-url",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "modify url based on serializable config",
   "keywords": [
     "modify url",
@@ -48,6 +48,6 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
-    "@urltools/utils": "^1.1.1"
+    "@urltools/utils": "^2.0.0"
   }
 }
