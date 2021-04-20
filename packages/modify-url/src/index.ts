@@ -1,4 +1,4 @@
-import { URL } from 'whatwg-url'
+import { URL } from 'url'
 import { ModifyUrl } from './types'
 import modules from './modules'
 

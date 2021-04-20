@@ -38,7 +38,6 @@
   "devDependencies": {
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.41",
-    "@types/whatwg-url": "^8.2.0",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "bundlesize": "^0.18.1",
@@ -49,7 +48,6 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
-    "@urltools/utils": "^2.1.0",
-    "whatwg-url": "^8.5.0"
+    "@urltools/utils": "^2.1.0"
   }
 }
