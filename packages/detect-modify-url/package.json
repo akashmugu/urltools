@@ -1,6 +1,6 @@
 {
   "name": "@urltools/detect-modify-url",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "detect and modify urls in bulk based on serializable config",
   "keywords": [
     "bulk modify urls",
@@ -48,7 +48,7 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
-    "@urltools/modify-url": "^2.1.0",
+    "@urltools/modify-url": "^2.2.0",
     "@urltools/utils": "^2.1.0"
   }
 }
