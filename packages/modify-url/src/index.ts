@@ -1,4 +1,4 @@
-import { URL } from '@urltools/utils/lib/url'
+import { URL } from 'whatwg-url'
 import { ModifyUrl } from './types'
 import modules from './modules'
 

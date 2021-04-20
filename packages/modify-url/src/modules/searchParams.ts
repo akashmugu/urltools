@@ -1,4 +1,4 @@
-import { URLSearchParams } from '@urltools/utils/lib/url'
+import { URLSearchParams } from 'whatwg-url'
 import { SearchParamsPickOmit, SearchParamsReplaceAppend } from '@urltools/utils/lib/types/modifyUrl'
 import { Module } from '../types'
 
